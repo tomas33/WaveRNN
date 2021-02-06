@@ -258,7 +258,7 @@ class WaveRNN(nn.Module):
         output = output[:wave_len]
         output[-20 * self.hop_length:] *= fade_out
 
-        sf.write('stereo_file.wav',output,,44100,save_path)
+        sf.write('stereo_file.wav',output,44100,save_path)
 
         self.train()
 
