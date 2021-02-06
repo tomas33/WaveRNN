@@ -6,6 +6,7 @@ from utils.display import *
 from utils.dsp import *
 import os
 import numpy as np
+import soundfile as sf
 from pathlib import Path
 from typing import Union
 
@@ -257,7 +258,7 @@ class WaveRNN(nn.Module):
         output = output[:wave_len]
         output[-20 * self.hop_length:] *= fade_out
 
-        soundfile.write('stereo_file.wav',output, save_path)
+        sf.write('stereo_file.wav',output, save_path)
 
         self.train()
 
